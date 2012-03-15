@@ -1,56 +1,47 @@
-LimeScripts
+TextualScripts
 ===========
 
-Did you know you can add JavaScript to your LimeChat theme?! LimeScripts
-makes adding behavior to LimeChat awesome. It includes jQuery if you're
-a DOM wussy, and supports CoffeeScript if you're a hipster. Also includes
-some really terrible `console.log` support so you at least have half a
-clue about what's going on.
+Did you know you can add JavaScript to your Textual theme?! TextualScripts
+makes adding behavior to Textual awesome. It includes jQuery if you're
+a DOM wussy, and supports CoffeeScript if you're a hipster.
+
+TextualScripts (as you can see from the fork history on Github) began life
+as ["limescripts"](https://github.com/rpflorence/limescripts), authored by
+the awesome Ryan Florence. It has been (heavily) adapted for use in Textual.
+Thanks Ryan!
 
 Installation
 ------------
 
-1. Clone this repository into your LimeChat Themes directory. You can
-   find it by opening LimeChat, Prefences > Theme > Open in Finder
+1. Clone this repository into your Textual Styles directory. You can
+   find it by opening Textual, Preferences > Styles > Open Styles Folder
 
-2. Rename `main.coffee.example` to `main.coffee`. Don't worry, **You
-   don't have to use CoffeeScript to write your own stuff**. Edit as
-   you wish, its pretty straightforward.
+2. Replace `design.css` and `userInterface.plist` with the style/theme
+   files of your choice. The provided defaults are from the "Astria"
+   theme provided with Textual. You can also edit these files directly.
 
-3. Run `./install.sh <theme>` where `<theme>` is the exact name of your
-   theme like "Limelight" or "Campfire". LimeChat automatically loads a
-   JavaScript file with a name matching your theme. This install script
-   simply creates a link to `limescripts.js` for the theme you specify.
+3. Launch Textual, open Preferences > Styles and select "TextualScripts"
+   as your style/theme.
 
 Add your own scripts
 --------------------
 
 1. Create a `.js` or `.coffee` file in `lib/`
 
-2. Load it in `main.coffee` like this:
+2. Compile it (if it's a .coffee file)
 
-   ```coffee
-   # load a coffeescript file
-   load 'myscript.coffee'
+3. Load it in `scripts.js` at the bottom like this:
 
-   # load a javascript file
-   load 'something-awesome.js'
-
-   # set the default file type so you can omit the extension
-   load.language = 'js'
-   load 'something-awesome' # no .js!
-
-   # or for the hipsters
-   load.language = 'coffee'
-   load 'myscript'
+   ```javascript
+   Textual.include_js("lib/gist.js");
    ```
 
 API
 ---
 
-LimeScripts is essentially an event system. When a message is added, a
+TextualScripts is essentially an event system. When a message is added, a
 bunch of events are triggered. Do see the examples in `lib/`, there's
-also some decent documentation in `limescripts.js` about all the event
+also some decent documentation in `scripts.js` about all the event
 types you can bind to.
 
 ### Example
@@ -93,7 +84,9 @@ For all scripts in this repository:
 
 - [MIT-Style
   license](http://www.opensource.org/licenses/mit-license.php)
-- Copyright [Ryan Florence](http://ryanflorence.com)
+- Copyright [Tom Metge](http://accident-prone.com)
+- Adapted from "limescripts" by [Ryan Florence](http://ryanflorence.com)
+- Astria theme by Alex S¿rlie
 
 
 
